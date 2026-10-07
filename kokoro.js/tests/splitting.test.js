@@ -3,6 +3,21 @@ import { TextSplitterStream, split } from "../src/splitter.js";
 
 const TESTS = [
   {
+    name: "Newline after a mention terminates the sentence",
+    input: "Hello @ChrisGillett\n world.",
+    target: ["Hello @ChrisGillett", "world."],
+  },
+  {
+    name: "Newline after an email terminates the sentence",
+    input: "Contact test@example.com\nThank you.",
+    target: ["Contact test@example.com", "Thank you."],
+  },
+  {
+    name: "Newline after a URL terminates the sentence",
+    input: "Visit https://example.com\nNext line.",
+    target: ["Visit https://example.com", "Next line."],
+  },
+  {
     name: "Basic sentence splitting",
     input: "This is a test. This is another test.",
     target: ["This is a test.", "This is another test."],
