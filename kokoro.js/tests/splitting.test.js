@@ -3,21 +3,6 @@ import { TextSplitterStream, split } from "../src/splitter.js";
 
 const TESTS = [
   {
-    name: "Newline after a mention terminates the sentence",
-    input: "Hello @ChrisGillett\n world.",
-    target: ["Hello @ChrisGillett", "world."],
-  },
-  {
-    name: "Newline after an email terminates the sentence",
-    input: "Contact test@example.com\nThank you.",
-    target: ["Contact test@example.com", "Thank you."],
-  },
-  {
-    name: "Newline after a URL terminates the sentence",
-    input: "Visit https://example.com\nNext line.",
-    target: ["Visit https://example.com", "Next line."],
-  },
-  {
     name: "Basic sentence splitting",
     input: "This is a test. This is another test.",
     target: ["This is a test.", "This is another test."],
@@ -312,6 +297,21 @@ const TESTS = [
       "Christianity, unlike classical polytheism, needed a large interior space for the celebration of its religious services, and the basilica aptly filled that need.",
       "We naturally do not know the degree to which the emperor was involved in the design of new churches, but it is tempting to connect this with the secular basilica that Constantine completed in the Roman forum (the so-called Basilica of Maxentius) and the one he probably built in Trier, in connection with his residence in the city at a time when he was still caesar.",
     ],
+  },
+  {
+    name: "Newline after a mention terminates the sentence",
+    input: "Hello @ChrisGillett\n world.",
+    target: ["Hello @ChrisGillett", "world."],
+  },
+  {
+    name: "Newline after an email terminates the sentence",
+    input: "Contact test@example.com\nThank you.",
+    target: ["Contact test@example.com", "Thank you."],
+  },
+  {
+    name: "Newline after a URL terminates the sentence",
+    input: "Visit https://example.com\nNext line.",
+    target: ["Visit https://example.com", "Next line."],
   },
 ];
 
